@@ -58,23 +58,25 @@ class ArcadeWorkshop extends Phaser.Scene {
     this.load.image('arcadeTopDown2', 'assets/arcadeset/ArcadeTopDown2.png');
 
     // Load player sprites
-    this.load.image('player_elephant', 'assets/player_sprites/elephant.png');
-    this.load.image('player_giraffe', 'assets/player_sprites/giraffe.png');
-    this.load.image('player_hippo', 'assets/player_sprites/hippo.png');
-    this.load.image('player_monkey', 'assets/player_sprites/monkey.png');
-    this.load.image('player_panda', 'assets/player_sprites/panda.png');
-    this.load.image('player_parrot', 'assets/player_sprites/parrot.png');
-    this.load.image('player_penguin', 'assets/player_sprites/penguin.png');
-    this.load.image('player_pig', 'assets/player_sprites/pig.png');
-    this.load.image('player_rabbit', 'assets/player_sprites/rabbit.png');
-    this.load.image('player_snake', 'assets/player_sprites/snake.png');
+    this.load.image('player_1', 'assets/player_sprites/1.png');
+    this.load.image('player_2', 'assets/player_sprites/2.png');
+    this.load.image('player_3', 'assets/player_sprites/3.png');
+    this.load.image('player_4', 'assets/player_sprites/4.png');
+    this.load.image('player_5', 'assets/player_sprites/5.png');
+
 
     // Load NPC sprites (matching sprites-tiles.tsx)
-    // sprites tileset has firstgid=22 and tile IDs 4, 5, 6
+    // sprites tileset has firstgid=22 and tile IDs 4-12
     // GID = firstgid + tile_id
-    this.load.image('npc_sprite_26', 'assets/npc_sprites/ben.png');    // GID 26 = 22 + 4
-    this.load.image('npc_sprite_27', 'assets/npc_sprites/jacob.png');  // GID 27 = 22 + 5
-    this.load.image('npc_sprite_28', 'assets/npc_sprites/kb.png');     // GID 28 = 22 + 6
+    this.load.image('npc_sprite_26', 'assets/npc_sprites/ben.png');      // GID 26 = 22 + 4
+    this.load.image('npc_sprite_27', 'assets/npc_sprites/jacob.png');    // GID 27 = 22 + 5
+    this.load.image('npc_sprite_28', 'assets/npc_sprites/kb.png');       // GID 28 = 22 + 6
+    this.load.image('npc_sprite_29', 'assets/npc_sprites/caitlin.png');  // GID 29 = 22 + 7
+    this.load.image('npc_sprite_30', 'assets/npc_sprites/dhyan.png');    // GID 30 = 22 + 8
+    this.load.image('npc_sprite_31', 'assets/npc_sprites/gabe.png');     // GID 31 = 22 + 9
+    this.load.image('npc_sprite_32', 'assets/npc_sprites/hailey.png');   // GID 32 = 22 + 10
+    this.load.image('npc_sprite_33', 'assets/npc_sprites/jahvon.png');   // GID 33 = 22 + 11
+    this.load.image('npc_sprite_34', 'assets/npc_sprites/jeff.png');     // GID 34 = 22 + 12
   }
 
   create() {
@@ -137,7 +139,7 @@ class ArcadeWorkshop extends Phaser.Scene {
     };
 
     // Add title text
-    const titleText = this.add.text(600, 50, 'VIRTUAL ARCADE WORKSHOP', {
+    const titleText = this.add.text(600, 50, 'VIRTUAL ARCADE', {
       fontSize: '20px',
       fontFamily: '"Press Start 2P", monospace',
       color: '#00ff00',
@@ -725,16 +727,14 @@ class ArcadeWorkshop extends Phaser.Scene {
   createPlayer(startX, startY) {
     // Randomly select a player sprite
     const playerSprites = [
-      'player_elephant', 'player_giraffe', 'player_hippo', 'player_monkey',
-      'player_panda', 'player_parrot', 'player_penguin', 'player_pig',
-      'player_rabbit', 'player_snake'
+      'player_1', 'player_2', 'player_3', 'player_4', 'player_5'
     ];
     const randomSprite = Phaser.Utils.Array.GetRandom(playerSprites);
 
     this.player = this.physics.add.sprite(startX, startY, randomSprite);
     this.player.setCollideWorldBounds(true);
     this.player.setDepth(10); // Ensure player is above floor and machines
-    this.player.setScale(0.25); // Scale down the sprite to 25%
+    // this.player.setScale(0.25); // Scale down the sprite to 25%
 
     // Set world bounds based on world size
     this.physics.world.setBounds(0, 0, this.worldWidth, this.worldHeight);

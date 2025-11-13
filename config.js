@@ -1,7 +1,6 @@
 // Copy this file to config.js and add your Supabase credentials
 // Get these from your Supabase project settings > API
 
-// Supabase database pw: G5q6rIqIF4dszns1
 
 const SUPABASE_CONFIG = {
   url: 'https://osmnsdnsgovdnvpissba.supabase.co',
