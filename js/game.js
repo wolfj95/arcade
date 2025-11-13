@@ -63,6 +63,7 @@ class ArcadeWorkshop extends Phaser.Scene {
     this.load.image('player_3', 'assets/player_sprites/3.png');
     this.load.image('player_4', 'assets/player_sprites/4.png');
     this.load.image('player_5', 'assets/player_sprites/5.png');
+    this.load.image('player_6', 'assets/player_sprites/6.png');
 
 
     // Load NPC sprites (matching sprites-tiles.tsx)
@@ -727,7 +728,7 @@ class ArcadeWorkshop extends Phaser.Scene {
   createPlayer(startX, startY) {
     // Randomly select a player sprite
     const playerSprites = [
-      'player_1', 'player_2', 'player_3', 'player_4', 'player_5'
+      'player_1', 'player_2', 'player_3', 'player_4', 'player_5', 'player_6'
     ];
     const randomSprite = Phaser.Utils.Array.GetRandom(playerSprites);
 
