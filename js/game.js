@@ -140,7 +140,7 @@ class ArcadeWorkshop extends Phaser.Scene {
     };
 
     // Add title text
-    const titleText = this.add.text(600, 50, 'VIRTUAL ARCADE', {
+    const titleText = this.add.text(600, 50, 'VIBE ARCADE', {
       fontSize: '20px',
       fontFamily: '"Press Start 2P", monospace',
       color: '#00ff00',
