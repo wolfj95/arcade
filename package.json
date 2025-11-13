@@ -1,0 +1,17 @@
+{
+  "name": "virtual-arcade",
+  "version": "1.0.0",
+  "description": "An interactive arcade workshop for student game projects",
+  "main": "index.html",
+  "scripts": {
+    "dev": "live-server --port=8080 --watch=. --wait=200",
+    "build": "echo 'No build step required for static site'"
+  },
+  "dependencies": {
+    "phaser": "^3.70.0",
+    "@supabase/supabase-js": "^2.39.0"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}

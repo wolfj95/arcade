@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Arcade Workshop</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="game-container"></div>
+
+    <!-- Instructions -->
+    <div id="instructions">
+        <p>Use ARROW KEYS or WASD to move</p>
+        <p>CLICK arcade machines to view games</p>
+    </div>
+
+    <!-- Modal for arcade machine interaction -->
+    <div id="modal-overlay" class="modal-overlay hidden">
+        <div id="modal" class="modal">
+            <button id="close-modal" class="close-button">&times;</button>
+
+            <!-- Out of Order View -->
+            <div id="out-of-order-view" class="modal-content hidden">
+                <div class="arcade-screen">
+                    <div class="scanlines"></div>
+                    <h2>OUT OF ORDER</h2>
+                    <div class="glitch">⚠</div>
+                    <p>This arcade machine is waiting for a game!</p>
+                    <button id="add-game-button" class="arcade-button">INSERT COIN TO ADD GAME</button>
+                </div>
+            </div>
+
+            <!-- Add Game Form View -->
+            <div id="add-game-view" class="modal-content hidden">
+                <div class="arcade-screen">
+                    <div class="scanlines"></div>
+                    <h2>ADD YOUR GAME</h2>
+                    <form id="add-game-form">
+                        <div class="form-group">
+                            <label for="game-title">GAME TITLE:</label>
+                            <input type="text" id="game-title" name="game-title" required maxlength="50">
+                        </div>
+                        <div class="form-group">
+                            <label for="student-name">YOUR NAME:</label>
+                            <input type="text" id="student-name" name="student-name" required maxlength="50">
+                        </div>
+                        <div class="form-group">
+                            <label for="game-link">GAME LINK:</label>
+                            <input type="url" id="game-link" name="game-link" required placeholder="https://">
+                        </div>
+                        <div class="form-buttons">
+                            <button type="submit" class="arcade-button">SUBMIT</button>
+                            <button type="button" id="cancel-add" class="arcade-button secondary">CANCEL</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Game Info View -->
+            <div id="game-info-view" class="modal-content hidden">
+                <div class="arcade-screen">
+                    <div class="scanlines"></div>
+                    <div class="game-title-display"></div>
+                    <div class="press-start">PRESS START</div>
+                    <div class="game-details">
+                        <p class="created-by">CREATED BY: <span class="student-name-display"></span></p>
+                    </div>
+                    <a href="#" id="play-game-link" target="_blank" rel="noopener noreferrer" class="arcade-button play-button">
+                        ► PLAY GAME
+                    </a>
+                    <button id="remove-game-button" class="arcade-button danger">REMOVE GAME</button>
+                </div>
+            </div>
+
+            <!-- Loading View -->
+            <div id="loading-view" class="modal-content hidden">
+                <div class="arcade-screen">
+                    <div class="scanlines"></div>
+                    <div class="loading">
+                        <p>LOADING...</p>
+                        <div class="loading-bar">
+                            <div class="loading-progress"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load configuration first -->
+    <script src="config.js"></script>
+
+    <!-- Load dependencies from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.70.0/dist/phaser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.0/dist/umd/supabase.min.js"></script>
+
+    <!-- Load our scripts -->
+    <script src="js/supabase-client.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>
